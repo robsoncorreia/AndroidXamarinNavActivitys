@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capital Contable"
+            android:id="@+id/title"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresos Mexico"
+            android:id="@+id/mexicoI"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/title" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Egresos Mexico"
+            android:id="@+id/mexicoE"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/mexicoI" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresos Colombia"
+            android:id="@+id/colombiaI"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/mexicoE" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Egresos Colombia"
+            android:id="@+id/colombiaE"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/colombiaI" />
+        <EditText
+            android:id="@+id/txtMexicoE"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/colombiaE" />
+        <EditText
+            android:id="@+id/txtColombiaI"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/colombiaI" />
+        <EditText
+            android:id="@+id/txtColombiaE"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/mexicoE" />
+        <EditText
+            android:id="@+id/txtMexicoI"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
+            android:layout_marginTop="0dp"
+            android:soundEffectsEnabled="true"
+            android:textAlignment="center"
+            android:layout_marginLeft="0.0dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/mexicoI" />
+        <Button
+            android:text="Calcular"
+            android:background="#ff0000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:layout_marginTop="30.5dp"
+            android:layout_below="@id/txtMexicoE"
+            android:layout_alignRight="@id/txtMexicoE" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capital Contable"
+            android:id="@+id/title"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capital  Mexico"
+            android:id="@+id/mexico"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/title" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capital Colombia"
+            android:id="@+id/colombia"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/mexico" />
+        <EditText
+            android:id="@+id/txtMexico"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/mexico" />
+        <EditText
+            android:id="@+id/txtColombia"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/colombia" />
+        <Button
+            android:text="Calcular"
+            android:background="#ff0000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:layout_marginTop="30.5dp"
+            android:layout_below="@id/txtColombia"
+            android:layout_alignRight="@id/txtColombia" />
+    </RelativeLayout>
+</LinearLayout>
