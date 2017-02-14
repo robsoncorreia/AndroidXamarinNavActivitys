@@ -22,8 +22,7 @@ namespace AndroidXamarin2
             var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             path = Path.Combine(path, "Base.db3");
             var conn = new SQLiteConnection(path);
-
-            conn.Table<Informacao>();
+            conn.CreateTable<Informacao>();
 
             EditText mi = FindViewById<EditText>(Resource.Id.txtMexicoI);
             EditText me = FindViewById<EditText>(Resource.Id.txtMexicoE);
