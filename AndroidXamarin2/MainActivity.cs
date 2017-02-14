@@ -2,6 +2,8 @@
 using Android.Widget;
 using Android.OS;
 using Android.Content;
+using System.IO;
+using SQLite;
 
 namespace AndroidXamarin2
 {
@@ -16,6 +18,13 @@ namespace AndroidXamarin2
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            path = Path.Combine(path, "Base.db3");
+            var conn = new SQLiteConnection(path);
+
+            conn.Table<Informacao>();
+
             EditText mi = FindViewById<EditText>(Resource.Id.txtMexicoI);
             EditText me = FindViewById<EditText>(Resource.Id.txtMexicoE);
             EditText ci = FindViewById<EditText>(Resource.Id.txtColombiaI);
@@ -27,6 +36,8 @@ namespace AndroidXamarin2
             {
                 try
                 {
+                    
+
                     ingressosM = double.Parse(mi.Text);
                     ingressosC = double.Parse(ci.Text);
                     egressosM = double.Parse(me.Text);
@@ -34,6 +45,16 @@ namespace AndroidXamarin2
                     capitalM = ingressosM - egressosM;
                     capitalC = ingressosC - egressosC;
 
+                    var info = new Informacao();
+
+                    info.EgressoColombia = egressosC;
+                    info.EgressoMexico = egressosM;
+                    info.IngressoColombia = ingressosC;
+                    info.IngressoMexico = ingressosM;
+
+                    conn.Insert(info);
+
+                    Toast.MakeText(this, "Informação guardada no SQLite", ToastLength.Short).Show();
                     Cargar();
 
                 }
@@ -51,6 +72,65 @@ namespace AndroidXamarin2
             objIntent.PutExtra("capitalM", capitalM);
             objIntent.PutExtra("capitalC", capitalC);
             StartActivity(objIntent);
+        }
+    }
+    public class Informacao
+    {
+        private double ingressoMexico;
+        private double egressoMexico;
+        private double ingressoColombia;
+        private double egressoColombia;
+
+        public double IngressoMexico
+        {
+            get
+            {
+                return ingressoMexico;
+            }
+
+            set
+            {
+                ingressoMexico = value;
+            }
+        }
+
+        public double EgressoMexico
+        {
+            get
+            {
+                return egressoMexico;
+            }
+
+            set
+            {
+                egressoMexico = value;
+            }
+        }
+
+        public double IngressoColombia
+        {
+            get
+            {
+                return ingressoColombia;
+            }
+
+            set
+            {
+                ingressoColombia = value;
+            }
+        }
+
+        public double EgressoColombia
+        {
+            get
+            {
+                return egressoColombia;
+            }
+
+            set
+            {
+                egressoColombia = value;
+            }
         }
     }
 }

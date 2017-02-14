@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
+using System.IO;
 
 namespace AndroidXamarin2
 {
@@ -23,6 +25,18 @@ namespace AndroidXamarin2
             EditText txtMexico = FindViewById<EditText>(Resource.Id.txtMexico);
             EditText txtColombia = FindViewById<EditText>(Resource.Id.txtColombia);
 
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            path = Path.Combine(path, "Base.db3");
+            var conn = new SQLiteConnection(path);
+
+            var elementos = from s in conn.Table<Informacao>() select s;
+            foreach (var fila in elementos)
+            {
+                Toast.MakeText(this, fila.IngressoMexico.ToString(), ToastLength.Short).Show();
+                Toast.MakeText(this, fila.EgressoMexico.ToString(), ToastLength.Short).Show();
+                Toast.MakeText(this, fila.IngressoColombia.ToString(), ToastLength.Short).Show();
+                Toast.MakeText(this, fila.EgressoColombia.ToString(), ToastLength.Short).Show();
+            }
             try
             {
                 double x = 0, y = 0;
