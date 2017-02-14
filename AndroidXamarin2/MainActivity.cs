@@ -30,13 +30,10 @@ namespace AndroidXamarin2
             EditText ce = FindViewById<EditText>(Resource.Id.txtColombiaE);
             Button button1 = FindViewById<Button>(Resource.Id.button1);
             
-
             button1.Click += delegate
             {
                 try
                 {
-                    
-
                     ingressosM = double.Parse(mi.Text);
                     ingressosC = double.Parse(ci.Text);
                     egressosM = double.Parse(me.Text);
